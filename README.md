@@ -19,6 +19,7 @@ The system tracks patients, providers, claims, services, diagnoses, ingestion jo
 ---
 
 ## Project Structure
+```
 healthcare-claims-db/
 │
 ├── app/
@@ -40,6 +41,7 @@ healthcare-claims-db/
 │
 ├── requirements.txt
 └── README.md
+```
 
 ## Database
 Includes **10 tables**:
