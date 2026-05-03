@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claims</title>
+</head>
+<body>
+
+<h1>Healthcare Claims System</h1>
+<a href="/">Home</a>
+
+<h2>Add Claim</h2>
+
+<!-- Message (success or error) -->
+{% if message %}
+    <p style="color:red;">{{ message }}</p>
+{% endif %}
+
+<form method="POST">
+    Patient ID: <input name="patient_id" required><br><br>
+    Provider ID: <input name="provider_id" required><br><br>
+    Batch ID: <input name="batch_id" required><br><br>
+    Date: <input name="claim_date" type="date" required><br><br>
+    Amount: <input name="amount" required><br><br>
+    Status: <input name="status" required><br><br>
+
+    <button type="submit">Add Claim</button>
+</form>
+
+<hr>
+
+<h2>Claims</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Patient</th>
+        <th>Provider</th>
+        <th>Batch</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </tr>
+
+    {% for c in claims %}
+    <tr>
+        <td>{{ c[0] }}</td>
+        <td>{{ c[1] }}</td>
+        <td>{{ c[2] }}</td>
+        <td>{{ c[3] }}</td>
+        <td>{{ c[4] }}</td>
+        <td>{{ c[5] }}</td>
+        <td>{{ c[6] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

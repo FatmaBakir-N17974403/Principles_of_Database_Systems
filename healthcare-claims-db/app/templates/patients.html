@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+</head>
+<body>
+
+<h1>Healthcare Claims System</h1>
+<a href="/">Home</a>
+
+<h2>Claims per Provider</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Provider</th>
+        <th>Total Claims</th>
+        <th>Total Amount</th>
+    </tr>
+
+    {% for r in report %}
+    <tr>
+        <td>{{ r[0] }}</td>
+        <td>{{ r[1] }}</td>
+        <td>{{ r[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+ubuntu@ip-172-31-34-37:~/healthcare-claims-db/app/templates$ cat patients.html 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patients</title>
+</head>
+<body>
+
+<h1>Healthcare Claims System</h1>
+<a href="/">Home</a>
+
+<h2>Add Patient</h2>
+
+<!-- Message -->
+{% if message %}
+    <p style="color:red;">{{ message }}</p>
+{% endif %}
+
+<form method="POST">
+    First Name: <input name="first_name" required><br><br>
+    Last Name: <input name="last_name" required><br><br>
+    DOB: <input name="dob" type="date" required><br><br>
+    Gender: <input name="gender" required><br><br>
+    State: <input name="state" required><br><br>
+    Plan ID: <input name="plan_id" required><br><br>
+
+    <button type="submit">Add Patient</button>
+</form>
+
+<hr>
+
+<h2>Patients</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>State</th>
+        <th>Plan</th>
+    </tr>
+
+    {% for p in patients %}
+    <tr>
+        <td>{{ p[0] }}</td>
+        <td>{{ p[1] }}</td>
+        <td>{{ p[2] }}</td>
+        <td>{{ p[3] }}</td>
+        <td>{{ p[4] }}</td>
+        <td>{{ p[5] }}</td>
+        <td>{{ p[6] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
